@@ -15,11 +15,11 @@ fi
 
 echo "Start certificate update for domains $DOMAINS (email: $EMAIL)"
 
-echo.
+echo ""
 echo "Run certbot ..."
 certbot certonly -d "$DOMAINS" --standalone -n --agree-tos -m "$EMAIL"
 
-echo.
+echo ""
 echo "Looking for certificates ..."
 CERTPATH=/etc/letsencrypt/live/$(echo "$DOMAINS" | cut -f1 -d',')
 ls "$CERTPATH" || exit 1
