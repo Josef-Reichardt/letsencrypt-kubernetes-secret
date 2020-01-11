@@ -17,7 +17,7 @@ echo "Start certificate update for domains $DOMAINS (email: $EMAIL)"
 
 echo.
 echo "Run certbot ..."
-certbot certonly --dry-run -d "$DOMAINS" --standalone -n --agree-tos -m "$EMAIL"
+certbot certonly -d "$DOMAINS" --standalone -n --agree-tos -m "$EMAIL"
 
 echo.
 echo "Looking for certificates ..."
