@@ -16,7 +16,7 @@ fi
 echo "Start certificate update for domains $DOMAINS (email: $EMAIL)"
 
 echo "Run certbot ..."
-certbot certonly --dry-run -d "$DOMAINS" --standalone -n --agree-tos -m "$EMAIL" || exit 1
+certbot certonly -d "$DOMAINS" --standalone -n --agree-tos -m "$EMAIL" || exit 1
 
 echo "Looking for certificates ..."
 CERTPATH=/etc/letsencrypt/live/$(echo "$DOMAINS" | cut -f1 -d',')
