@@ -22,7 +22,7 @@ certbot certonly -d "$DOMAINS" --standalone -n --agree-tos -m "$EMAIL"
 echo ""
 echo "Looking for certificates ..."
 CERTPATH=/etc/letsencrypt/live/$(echo "$DOMAINS" | cut -f1 -d',')
-ls "$CERTPATH" || ( ls /etc/letsencrypt/live && exit 1 )
+ls "$CERTPATH" || exit 1
 
 NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 echo "Updating secret \"$SECRET\" (namespace: $NAMESPACE) ..."
